@@ -23,6 +23,7 @@
             <td>Серия паспорта</td>
             <td>Улица</td>
             <td>Дом</td>
+            <td>Редактирование</td>
         </tr>
         <c:forEach items="${clients}" var="client">
             <tr>
@@ -32,9 +33,100 @@
                 <td> ${client.pasportS}</td>
                 <td> ${client.street}</td>
                 <td> ${client.home}</td>
+                <td>
+                    <a href="<c:url value="/delete?option=client&id=${client.idClient}"/>">Delete</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
+    </br>
+    <h3>Таблица "Счета"</h3>
+    <table>
+        <tr>
+            <td bgcolor="#f5f5dc">Id_счета</td>
+            <td>Дата открытия</td>
+            <td>Дата закрытия</td>
+            <td>Редактирование</td>
+        </tr>
+        <c:forEach items="${accounts}" var="account">
+            <tr>
+                <td> ${account.idAccount}</td>
+                <td> ${account.dateBegin}</td>
+                <td> ${account.dateClose}</td>
+                <td>
+                    <a href="<c:url value="/delete?option=account&id=${account.idAccount}"/>">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    </br>
+    <h3>Таблица "Карты"</h3>
+    <table>
+        <tr>
+            <td bgcolor="#f5f5dc">Id_карты</td>
+            <td>Номер Карты</td>
+            <td>VCC</td>
+            <td>Тип карты</td>
+            <td>Редактирование</td>
+
+        </tr>
+        <c:forEach items="${cards}" var="card">
+            <tr>
+                <td> ${card.idCard}</td>
+                <td> ${card.number_card}</td>
+                <td> ${card.vcc}</td>
+                <td> ${card.type}</td>
+                <td>
+                    <a href="<c:url value="/delete?option=cards&id=${card.idCard}"/>">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    </br>
+    <h3>Таблица "Филиалы"</h3>
+    <table>
+        <tr>
+            <td bgcolor="#f5f5dc">Id_филиала</td>
+            <td>Дата</td>
+            <td>Улица</td>
+            <td>Дом</td>
+            <td>Редактирование</td>
+
+        </tr>
+        <c:forEach items="${fil}" var="fil">
+            <tr>
+                <td> ${fil.idFilial}</td>
+                <td> ${fil.region}</td>
+                <td> ${fil.street}</td>
+                <td> ${fil.home}</td>
+                <td>
+                    <a href="<c:url value="/delete?option=fil&id=${fil.idFilial}"/>">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    </br>
+    <h3>Таблица "Операции"</h3>
+    <table>
+        <tr>
+            <td bgcolor="#f5f5dc">Id_операции</td>
+            <td>Дата</td>
+            <td>Тип</td>
+            <td>Редактирование</td>
+        </tr>
+        <c:forEach items="${oper}" var="oper">
+            <tr>
+                <td> ${oper.idOper}</td>
+                <td> ${oper.dateOper}</td>
+                <td> ${oper.typeOper}</td>
+                <td>
+                    <a href="<c:url value="/delete?option=oper&id=${oper.idOper}"/>">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+
+
 </div>
 </body>
 </html>

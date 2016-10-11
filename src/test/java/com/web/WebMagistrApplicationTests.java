@@ -17,9 +17,7 @@ public class WebMagistrApplicationTests {
 
     @Test
     public void contextLoads() {
-        ClientsEntity clientsEntity = new ClientsEntity("sd",23,34,"df",23);
-        service.add(clientsEntity);
-        System.out.println(service.getAll());
+
     }
 
 }
