@@ -58,125 +58,16 @@
                         <td> ${oper.dateOper}</td>
                         <td> ${oper.typeOper}</td>
                         <td>
-                            <a href="<c:url value="/delete?option=oper&id=${oper.idOper}"/>">Delete</a>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default">Изменить</button>
+                                <button type="button" class="btn btn-default" href="<c:url value="/delete?option=oper&id=${oper.idOper}"/>">Удалить</button>
+                            </div>
                         </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
-
-    <!--table>
-        <tr>
-            <td bgcolor="#f5f5dc">Id_клиента</td>
-            <td>Фамилия</td>
-            <td>Номер паспорта</td>
-            <td>Серия паспорта</td>
-            <td>Улица</td>
-            <td>Дом</td>
-            <td>Редактирование</td>
-        </tr>
-        <c:forEach items="${clients}" var="client">
-            <tr>
-                <td> ${client.idClient}</td>
-                <td> ${client.surname}</td>
-                <td> ${client.pasportN}</td>
-                <td> ${client.pasportS}</td>
-                <td> ${client.street}</td>
-                <td> ${client.home}</td>
-                <td>
-                    <a href="<c:url value="/delete?option=client&id=${client.idClient}"/>">Delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-    </br>
-    <!--h3>Таблица "Счета"</h3>
-    <table>
-        <tr>
-            <td bgcolor="#f5f5dc">Id_счета</td>
-            <td>Дата открытия</td>
-            <td>Дата закрытия</td>
-            <td>Редактирование</td>
-        </tr>
-        <c:forEach items="${accounts}" var="account">
-            <tr>
-                <td> ${account.idAccount}</td>
-                <td> ${account.dateBegin}</td>
-                <td> ${account.dateClose}</td>
-                <td>
-                    <a href="<c:url value="/delete?option=account&id=${account.idAccount}"/>">Delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-    </br>
-    <h3>Таблица "Карты"</h3>
-    <table>
-        <tr>
-            <td bgcolor="#f5f5dc">Id_карты</td>
-            <td>Номер Карты</td>
-            <td>VCC</td>
-            <td>Тип карты</td>
-            <td>Редактирование</td>
-
-        </tr>
-        <c:forEach items="${cards}" var="card">
-            <tr>
-                <td> ${card.idCard}</td>
-                <td> ${card.number_card}</td>
-                <td> ${card.vcc}</td>
-                <td> ${card.type}</td>
-                <td>
-                    <a href="<c:url value="/delete?option=cards&id=${card.idCard}"/>">Delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-    </br>
-    <h3>Таблица "Филиалы"</h3>
-    <table>
-        <tr>
-            <td bgcolor="#f5f5dc">Id_филиала</td>
-            <td>Дата</td>
-            <td>Улица</td>
-            <td>Дом</td>
-            <td>Редактирование</td>
-
-        </tr>
-        <c:forEach items="${fil}" var="fil">
-            <tr>
-                <td> ${fil.idFilial}</td>
-                <td> ${fil.region}</td>
-                <td> ${fil.street}</td>
-                <td> ${fil.home}</td>
-                <td>
-                    <a href="<c:url value="/delete?option=fil&id=${fil.idFilial}"/>">Delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-    </br>
-    <h3>Таблица "Операции"</h3>
-    <table>
-        <tr>
-            <td bgcolor="#f5f5dc">Id_операции</td>
-            <td>Дата</td>
-            <td>Тип</td>
-            <td>Редактирование</td>
-        </tr>
-        <c:forEach items="${oper}" var="oper">
-            <tr>
-                <td> ${oper.idOper}</td>
-                <td> ${oper.dateOper}</td>
-                <td> ${oper.typeOper}</td>
-                <td>
-                    <a href="<c:url value="/delete?option=oper&id=${oper.idOper}"/>">Delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table-->
-
-
+        <button type="button" class="btn btn-success">Добавить запись</button>
 </div>
     </div>
 </body>
