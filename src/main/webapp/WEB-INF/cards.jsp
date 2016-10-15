@@ -22,6 +22,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
+
     <div class="container">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -29,33 +30,44 @@
                     <a class="navbar-brand" href="/">СберБанк</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/clients">Клиенты</a></li>
+                    <li><a href="/clients">Клиенты</a></li>
                     <li><a href="/acc">Счета</a></li>
-                    <li><a href="/cards">Карты</a></li>
+                    <li class="active"><a href="/cards">Карты</a></li>
                     <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/oper">Операции</a></li>
                 </ul>
             </div>
         </nav>
         <div class="jumbotron">
-                <h1>База данных СберБанка</h1>
-                <p>работа выполнена студентом группы 6133М Кильдюшевым Владимиром</p>
+                <h2>Карты</h2>
         </div>
 
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Номер Карты</th>
+                <th>VCC</th>
+                <th>Тип карты</th>
+                <th>Редактирование</th>
+            </tr>
+            </thead>
+                <tbody>
+                <c:forEach items="${cards}" var="card">
+                    <tr>
+                        <td> ${card.idCard}</td>
+                        <td> ${card.number_card}</td>
+                        <td> ${card.vcc}</td>
+                        <td> ${card.type}</td>
+                        <td>
+                            <a href="<c:url value="/delete?option=cards&id=${card.idCard}"/>">Delete</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
 
-        <div class="list-group">
-            <a href="/clients" class="list-group-item">Клиенты</a>
-            <a href="/acc" class="list-group-item">Счета</a>
-            <a href="/cards" class="list-group-item">Карты</a>
-            <a href="/fil" class="list-group-item">Филиалы</a>
-            <a href="/oper" class="list-group-item">Операции</a>
-        </div>
-
-<!--div class="tables">
-
-
-    <h3>Таблица "Клиенты"</h3>
-    <table>
+    <!--table>
         <tr>
             <td bgcolor="#f5f5dc">Id_клиента</td>
             <td>Фамилия</td>
@@ -80,7 +92,7 @@
         </c:forEach>
     </table>
     </br>
-    <h3>Таблица "Счета"</h3>
+    <!--h3>Таблица "Счета"</h3>
     <table>
         <tr>
             <td bgcolor="#f5f5dc">Id_счета</td>
@@ -164,11 +176,10 @@
                 </td>
             </tr>
         </c:forEach>
-    </table>
+    </table-->
 
 
-</div-->
+</div>
     </div>
 </body>
-
 </html>

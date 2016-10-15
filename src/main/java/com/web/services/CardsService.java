@@ -12,7 +12,7 @@ import java.util.List;
  * Created by Vladimir on 04.10.2016.
  */
 @Service
-public class CardsService implements DefaultInterface<CardsEntity>  {
+public class CardsService implements DefaultInterface<CardsEntity> {
 
     @Autowired
     CardsRepository repository;
