@@ -1,3 +1,4 @@
+C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\controllers\ClientsController.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\services\AccountsService.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\services\DefaultInterface.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\repositories\ClientRepository.java
@@ -10,9 +11,13 @@ C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\entities\FilialsEnt
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\WebMagistrApplication.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\services\CardsService.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\services\ClientsService.java
+C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\controllers\OperationsController.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\repositories\CardsRepository.java
+C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\controllers\AccountsController.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\repositories\OperationsRepository.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\entities\CardsEntity.java
+C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\controllers\CardsController.java
+C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\controllers\FillialsController.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\entities\AccountsEntity.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\entities\OperationsEntity.java
 C:\Users\Vladimir\Documents\WebMagistr\src\main\java\com\web\services\FilialsService.java

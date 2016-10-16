@@ -10,15 +10,8 @@
 <html>
 <head>
     <title>Банки</title>
-    <%--<style>
-        <%@include file="styles.css" %>
-    </style>--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -65,15 +58,15 @@
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default">Изменить</button>
-                                <button type="button" class="btn btn-default" href="<c:url value="/delete?option=client&id=${client.idClient}"/>">Удалить</button>
+                                <a class="btn btn-default" role="button" href="<c:url value="/clients/delete?id=${client.idClient}"/>">Удалить</a>
                             </div>
                         </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
-        <button type="button" class="btn btn-success">Добавить запись</button>
-</div>
+        <a href="/clients/addForm" class="btn btn-success" role="button">Добавить запись</a>
+
     </div>
 </body>
 </html>
