@@ -1,11 +1,16 @@
 package com.web.controllers;
 
+import com.web.entities.AccountsEntity;
+import com.web.entities.FilialsEntity;
 import com.web.services.AccountsService;
 import com.web.services.FilialsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -23,5 +28,16 @@ public class FillialsController {
         model.addAttribute("fill",filialsService.getAll());
 
         return "fillials";
+    }
+    @GetMapping("/addForm")
+    String addJsp (Model model){
+        model.addAttribute("fil",new FilialsEntity());
+        return "/forms/addFill";
+    }
+
+    @PostMapping("/add")
+    String addFil (@ModelAttribute("fil") FilialsEntity filialsEntity, BindingResult result){
+        filialsService.add(filialsEntity);
+        return "redirect:/fil";
     }
 }

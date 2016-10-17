@@ -68,7 +68,7 @@
                 </c:forEach>
             </tbody>
         </table>
-        <button type="button" class="btn btn-success">Добавить запись</button>
+        <a href="/fil/addForm" class="btn btn-success" role="button">Добавить запись</a>
     </div>
 </body>
 </html>

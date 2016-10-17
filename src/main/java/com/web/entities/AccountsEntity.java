@@ -1,6 +1,7 @@
 package com.web.entities;
 
 import javafx.scene.control.Label;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -18,9 +19,11 @@ public class AccountsEntity {
     private long idAccount;
     @Basic
     @Column(name = "date_begin")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateBegin;
     @Basic
     @Column(name = "date_close")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateClose;
     @OneToMany(mappedBy = "accountsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<OperationsEntity> operationsEntityList;

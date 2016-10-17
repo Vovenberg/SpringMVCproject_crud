@@ -1,5 +1,7 @@
 package com.web.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
@@ -15,6 +17,7 @@ public class FilialsEntity {
     private long idFilial;
     @Basic
     @Column(name = "region")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date region;
     @Basic
     @Column(name = "street")

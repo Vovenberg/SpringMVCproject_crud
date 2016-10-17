@@ -67,7 +67,7 @@
                 </c:forEach>
             </tbody>
         </table>
-        <button type="button" class="btn btn-success">Добавить запись</button>
+        <a href="/oper/addForm" class="btn btn-success" role="button">Добавить запись</a>
 </div>
     </div>
 </body>
