@@ -1,0 +1,8 @@
+# IntelliJ project files
+.idea
+*.iml
+# Package Files #
+*.jar
+### Maven template
+target/
+*mvn*
