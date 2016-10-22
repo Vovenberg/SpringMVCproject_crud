@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Vladimir on 16.10.2016.
@@ -37,6 +34,18 @@ public class AccountsController {
     @PostMapping("/add")
     String addAcc (@ModelAttribute("acc") AccountsEntity accountsEntity, BindingResult result){
         accountsService.add(accountsEntity);
+        return "redirect:/acc";
+    }
+
+    @GetMapping("/updateForm")
+    String updateForm (@RequestParam("id") Long id, Model model){
+        model.addAttribute("acc",accountsService.getById(id));
+        return "/forms/editAcc";
+    }
+
+    @PostMapping("/update")
+    String update (@ModelAttribute("acc") AccountsEntity accountsEntity,BindingResult result){
+        accountsService.update(accountsEntity);
         return "redirect:/acc";
     }
 }

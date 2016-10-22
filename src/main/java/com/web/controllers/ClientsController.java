@@ -21,7 +21,6 @@ public class ClientsController {
     @GetMapping()
     String getClients (Model model){
         model.addAttribute("clients",clientsService.getAll());
-
         return "clients";
     }
 
@@ -40,6 +39,18 @@ public class ClientsController {
     @GetMapping("/delete")
     String delete (@RequestParam("id") Long id){
         clientsService.delete(id);
+        return "redirect:/clients";
+    }
+
+    @GetMapping("/updateForm")
+    String updateForm (@RequestParam("id") Long id,Model model){
+        model.addAttribute("client",clientsService.getById(id));
+        return "/forms/editClients";
+    }
+
+    @PostMapping("/update")
+    String update (@ModelAttribute("client") ClientsEntity clientsEntity,BindingResult result){
+        clientsService.update(clientsEntity);
         return "redirect:/clients";
     }
 

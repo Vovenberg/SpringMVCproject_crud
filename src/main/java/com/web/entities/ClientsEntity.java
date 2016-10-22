@@ -38,16 +38,22 @@ public class ClientsEntity {
     public ClientsEntity() {
     }
 
-    public ClientsEntity(String surname, long pasportN, long pasportS, String street, int home) {
-
+    public ClientsEntity(Long id,String surname, long pasportN, long pasportS, String street, int home) {
+        this.idClient=id;
         this.surname = surname;
         this.pasportN = pasportN;
         this.pasportS = pasportS;
         this.street = street;
         this.home = home;
-        accountsEntityList = new ArrayList<>();
     }
 
+    public ClientsEntity(String surname, long pasportN, long pasportS, String street, int home) {
+        this.surname = surname;
+        this.pasportN = pasportN;
+        this.pasportS = pasportS;
+        this.street = street;
+        this.home = home;
+    }
 
     public long getIdClient() {
         return idClient;

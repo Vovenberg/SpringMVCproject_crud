@@ -29,7 +29,7 @@ public class OperationsService implements DefaultInterface<OperationsEntity> {
 
     @Override
     public void update(OperationsEntity entity) {
-
+        repository.save(entity);
     }
 
     @Override

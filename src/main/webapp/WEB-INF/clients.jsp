@@ -17,7 +17,7 @@
 <body>
 
     <div class="container">
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" >
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">СберБанк</a>
@@ -57,7 +57,7 @@
                         <td> ${client.home}</td>
                         <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default">Изменить</button>
+                                <a class="btn btn-default" role="button" href="<c:url value="/clients/updateForm?id=${client.idClient}"/>">Изменить</a>
                                 <a class="btn btn-default" role="button" href="<c:url value="/clients/delete?id=${client.idClient}"/>">Удалить</a>
                             </div>
                         </td>

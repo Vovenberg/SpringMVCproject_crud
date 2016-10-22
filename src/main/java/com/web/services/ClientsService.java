@@ -28,12 +28,12 @@ public class ClientsService implements DefaultInterface<ClientsEntity> {
 
     @Override
     public void update(ClientsEntity entity) {
-
+            repository.save(entity);
     }
 
     @Override
     public ClientsEntity getById(Long l) {
-        return  repository.getOne(l);
+        return  repository.findOne(l);
     }
 
     @Override

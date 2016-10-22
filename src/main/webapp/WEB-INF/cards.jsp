@@ -61,8 +61,8 @@
                         <td> ${card.type}</td>
                         <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default">Изменить</button>
-                                <button type="button" class="btn btn-default" href="<c:url value="/delete?option=cards&id=${card.idCard}"/>">Удалить</button>
+                                <a class="btn btn-default" role="button" href="<c:url value="/cards/updateForm?id=${card.idCard}"/>">Изменить</a>
+                                <a class="btn btn-default" role="button" href="<c:url value="/cards/delete?id=${card.idCard}"/>">Удалить</a>
                             </div>
                         </td>
                     </tr>

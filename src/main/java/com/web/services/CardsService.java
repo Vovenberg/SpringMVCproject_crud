@@ -31,7 +31,7 @@ public class CardsService implements DefaultInterface<CardsEntity> {
 
     @Override
     public void update(CardsEntity entity) {
-
+        repository.save(entity);
     }
 
     @Override

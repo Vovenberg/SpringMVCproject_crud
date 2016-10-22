@@ -60,8 +60,8 @@
                         <td> ${fil.home}</td>
                         <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default">Изменить</button>
-                                <button type="button" class="btn btn-default" href="<c:url value="/delete?option=fill&id=${fil.idFilial}"/>">Удалить</button>
+                                <a class="btn btn-default" role="button" href="<c:url value="/fil/updateForm?id=${fil.idFilial}"/>">Изменить</a>
+                                <a class="btn btn-default" role="button" href="<c:url value="/fil/delete?id=${fil.idFilial}"/>">Удалить</a>
                             </div>
                         </td>
                     </tr>

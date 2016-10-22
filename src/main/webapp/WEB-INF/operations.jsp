@@ -59,8 +59,8 @@
                         <td> ${oper.typeOper}</td>
                         <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default">Изменить</button>
-                                <button type="button" class="btn btn-default" href="<c:url value="/delete?option=oper&id=${oper.idOper}"/>">Удалить</button>
+                                <a class="btn btn-default" role="button" href="<c:url value="/oper/updateForm?id=${oper.idOper}"/>">Изменить</a>
+                                <a class="btn btn-default" role="button" href="<c:url value="/oper/delete?id=${oper.idOper}"/>">Удалить</a>
                             </div>
                         </td>
                     </tr>

@@ -32,7 +32,7 @@ public class AccountsService implements DefaultInterface<AccountsEntity> {
 
     @Override
     public void update(AccountsEntity entity) {
-
+        repository.save(entity);
     }
 
     @Override

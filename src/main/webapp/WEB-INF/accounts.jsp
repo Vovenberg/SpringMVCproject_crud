@@ -59,8 +59,8 @@
                         <td> ${account.dateClose}</td>
                         <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default">Изменить</button>
-                                <button type="button" class="btn btn-default" href="<c:url value="/delete?option=acc&id=${account.idAccount}"/>">Удалить</button>
+                                <a class="btn btn-default" role="button" href="<c:url value="/acc/updateForm?id=${account.idAccount}"/>">Изменить</a>
+                                <a class="btn btn-default" role="button" href="<c:url value="/acc/delete?id=${account.idAccount}"/>">Удалить</a>
                              </div>
                         </td>
                     </tr>

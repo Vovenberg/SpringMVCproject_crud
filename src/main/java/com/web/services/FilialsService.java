@@ -31,7 +31,7 @@ public class FilialsService implements DefaultInterface<FilialsEntity> {
 
     @Override
     public void update(FilialsEntity entity) {
-
+        repository.save(entity);
     }
 
     @Override
