@@ -33,10 +33,10 @@
                     <a class="navbar-brand" href="/">СберБанк</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/clients">Клиенты</a></li>
+                    <li><a href="/clients">Клиенты</a></li>
                     <li><a href="/acc">Счета</a></li>
                     <li><a href="/cards">Карты</a></li>
-                    <li><a href="/fil">Филиалы</a></li>
+                    <li class="active"><a href="/fil">Филиалы</a></li>
                     <li><a href="/oper">Операции</a></li>
                 </ul>
             </div>
@@ -50,7 +50,10 @@
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" >Дата</label>
                     <div class="col-md-7">
-                        <input type="text" name="birthdate" value="10/24/1984" />
+                        <form:input type="date" path="region"  class="form-control input-sm"/>
+                        <div class="has-error">
+                            <form:errors path="region" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,7 +62,9 @@
                     <label class="col-md-3 control-lable" for="street">Улица</label>
                     <div class="col-md-7">
                         <form:input type="text" path="street" id="street" class="form-control input-sm"/>
-
+                        <div class="has-error">
+                            <form:errors path="street" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,7 +73,9 @@
                     <label class="col-md-3 control-lable" for="home">Дом</label>
                     <div class="col-md-7">
                         <form:input type="text" path="home" id="home" class="form-control input-sm"/>
-
+                        <div class="has-error">
+                            <form:errors path="home" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,17 +87,5 @@
 
     </div>
 
-    <script type="text/javascript">
-        $(function() {
-            $('input[name="region"]').daterangepicker({
-                        singleDatePicker: true,
-                        showDropdowns: true
-                    },
-                    function(start, end, label) {
-                        var years = moment().diff(start, 'years');
-                        alert("You are " + years + " years old.");
-                    });
-        });
-    </script>
 </body>
 </html>

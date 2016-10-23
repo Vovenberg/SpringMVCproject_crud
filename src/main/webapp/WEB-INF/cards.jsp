@@ -56,7 +56,7 @@
                 <c:forEach items="${cards}" var="card">
                     <tr>
                         <td> ${card.idCard}</td>
-                        <td> ${card.number_card}</td>
+                        <td> ${card.numberCard}</td>
                         <td> ${card.vcc}</td>
                         <td> ${card.type}</td>
                         <td>

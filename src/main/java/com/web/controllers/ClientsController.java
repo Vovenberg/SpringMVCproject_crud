@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * Created by Vladimir on 16.10.2016.
  */
@@ -31,7 +33,9 @@ public class ClientsController {
     }
 
     @PostMapping("/add")
-    String addClient (@ModelAttribute("client") ClientsEntity clientsEntity,BindingResult result){
+    String addClient (@Valid @ModelAttribute("client") ClientsEntity clientsEntity, BindingResult result){
+        if (result.hasErrors())
+            return "/forms/addClients";
         clientsService.add(clientsEntity);
         return "redirect:/clients";
     }
@@ -49,7 +53,9 @@ public class ClientsController {
     }
 
     @PostMapping("/update")
-    String update (@ModelAttribute("client") ClientsEntity clientsEntity,BindingResult result){
+    String update (@Valid @ModelAttribute("client") ClientsEntity clientsEntity,BindingResult result){
+        if (result.hasErrors())
+            return "/forms/editClients";
         clientsService.update(clientsEntity);
         return "redirect:/clients";
     }

@@ -4,7 +4,9 @@ import javafx.scene.control.Label;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -16,14 +18,17 @@ import java.util.Set;
 public class AccountsEntity {
     @Id
     @Column(name = "id_account")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idAccount;
     @Basic
     @Column(name = "date_begin")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull @Past
     private Date dateBegin;
     @Basic
     @Column(name = "date_close")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull @Past
     private Date dateClose;
     @OneToMany(mappedBy = "accountsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<OperationsEntity> operationsEntityList;

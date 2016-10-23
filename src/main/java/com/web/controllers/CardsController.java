@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * Created by Vladimir on 16.10.2016.
  */
@@ -33,11 +35,18 @@ public class CardsController {
     }
 
     @PostMapping("/add")
-    String addCard (@ModelAttribute("card") CardsEntity cardsEntity, BindingResult result){
+    String addCard (@Valid @ModelAttribute("card") CardsEntity cardsEntity, BindingResult result){
+        if (result.hasErrors())
+            return "/forms/addCards";
         cardsService.add(cardsEntity);
         return "redirect:/cards";
     }
 
+    @GetMapping("/delete")
+    String delete (@RequestParam("id") Long id){
+        cardsService.delete(id);
+        return "redirect:/cards";
+    }
     @GetMapping("/updateForm")
     String updateForm (@RequestParam("id") Long id, Model model){
         model.addAttribute("card",cardsService.getById(id));
@@ -45,7 +54,9 @@ public class CardsController {
     }
 
     @PostMapping("/update")
-    String update (@ModelAttribute("card") CardsEntity cardsEntity, BindingResult result){
+    String update (@Valid @ModelAttribute("card") CardsEntity cardsEntity, BindingResult result){
+        if (result.hasErrors())
+            return "/forms/editCards";
         cardsService.update(cardsEntity);
         return "redirect:/cards";
     }

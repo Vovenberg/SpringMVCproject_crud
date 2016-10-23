@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * Created by Vladimir on 16.10.2016.
  */
@@ -34,10 +36,19 @@ public class FillialsController {
     }
 
     @PostMapping("/add")
-    String addFil (@ModelAttribute("fil") FilialsEntity filialsEntity, BindingResult result){
+    String addFil (@Valid @ModelAttribute("fil") FilialsEntity filialsEntity, BindingResult result){
+        if (result.hasErrors())
+            return "/forms/addFill";
         filialsService.add(filialsEntity);
         return "redirect:/fil";
     }
+
+    @GetMapping("/delete")
+    String delete (@RequestParam("id") Long id){
+        filialsService.delete(id);
+        return "redirect:/fil";
+    }
+
     @GetMapping("/updateForm")
     String updateForm (@RequestParam("id") Long id, Model model){
         model.addAttribute("fill",filialsService.getById(id));
@@ -45,7 +56,9 @@ public class FillialsController {
     }
 
     @PostMapping("/update")
-    String update (@ModelAttribute("fill") FilialsEntity filialsEntity, BindingResult result){
+    String update (@Valid @ModelAttribute("fill") FilialsEntity filialsEntity, BindingResult result){
+        if (result.hasErrors())
+            return "/forms/editFill";
         filialsService.update(filialsEntity);
         return "redirect:/fil";
     }

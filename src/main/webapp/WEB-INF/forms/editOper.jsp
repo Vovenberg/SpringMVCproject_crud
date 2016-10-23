@@ -31,11 +31,11 @@
                     <a class="navbar-brand" href="/">СберБанк</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/clients">Клиенты</a></li>
+                    <li><a href="/clients">Клиенты</a></li>
                     <li><a href="/acc">Счета</a></li>
                     <li><a href="/cards">Карты</a></li>
                     <li><a href="/fil">Филиалы</a></li>
-                    <li><a href="/oper">Операции</a></li>
+                    <li class="active"><a href="/oper">Операции</a></li>
                 </ul>
             </div>
         </nav>
@@ -49,7 +49,10 @@
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="dateOper">Дата операции</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="dateOper" id="dateOper" class="form-control input-sm"/>
+                        <form:input type="date" path="dateOper" id="dateOper" class="form-control input-sm"/>
+                        <div class="has-error">
+                            <form:errors path="dateOper" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,8 +60,10 @@
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="typeOper">Тип операции</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="typeOper" id="typeOper" class="form-control input-sm"/>
-
+                        <form:input type="date" path="typeOper" id="typeOper" class="form-control input-sm"/>
+                        <div class="has-error">
+                            <form:errors path="typeOper" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>

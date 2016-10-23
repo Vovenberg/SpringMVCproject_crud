@@ -1,7 +1,10 @@
 package com.web.entities;
 
 import javax.persistence.*;
-import java.sql.Date;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+import java.util.Date;
 
 /**
  * Created by Vladimir on 21.09.2016.
@@ -11,12 +14,15 @@ import java.sql.Date;
 public class OperationsEntity {
     @Id
     @Column(name = "id_oper")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idOper;
     @Basic
     @Column(name = "date_oper")
+    @NotNull @Past
     private Date dateOper;
     @Basic
     @Column(name = "type_oper")
+    @Size(min=3, max=30)
     private String typeOper;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_account")

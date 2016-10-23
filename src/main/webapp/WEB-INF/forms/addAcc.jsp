@@ -31,8 +31,8 @@
                     <a class="navbar-brand" href="/">СберБанк</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/clients">Клиенты</a></li>
-                    <li><a href="/acc">Счета</a></li>
+                    <li><a href="/clients">Клиенты</a></li>
+                    <li class="active"><a href="/acc">Счета</a></li>
                     <li><a href="/cards">Карты</a></li>
                     <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/oper">Операции</a></li>
@@ -48,7 +48,10 @@
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="dateBegin">Дата открытия</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="dateBegin" id="dateBegin" class="form-control input-sm"/>
+                        <form:input type="date" path="dateBegin" class="form-control input-sm"/>
+                        <div class="has-error">
+                            <form:errors path="dateBegin" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,8 +59,10 @@
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="dateClose">Дата закрытия</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="dateClose" id="dateClose" class="form-control input-sm"/>
-
+                        <form:input type="date" path="dateClose" class="form-control input-sm"/>
+                        <div class="has-error">
+                            <form:errors path="dateClose" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>

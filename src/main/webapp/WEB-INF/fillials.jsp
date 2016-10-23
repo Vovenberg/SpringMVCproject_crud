@@ -14,7 +14,7 @@
         <%@include file="styles.css" %>
     </style>--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
@@ -55,7 +55,9 @@
                 <c:forEach items="${fill}" var="fil">
                     <tr>
                         <td> ${fil.idFilial}</td>
-                        <td> ${fil.region}</td>
+                        <td>
+                            <fmt:formatDate value="${fil.region}" pattern="dd-MM-yyyy"/>
+                        </td>
                         <td> ${fil.street}</td>
                         <td> ${fil.home}</td>
                         <td>

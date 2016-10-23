@@ -1,6 +1,8 @@
 package com.web.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -17,20 +19,24 @@ public class ClientsEntity {
     private long idClient;
     @Basic
     @Column(name = "surname")
+    @Size(min=3, max=30)
     private String surname;
     @Basic
     @Column(name = "pasport_n")
-    private long pasportN;
+    @NotNull
+    private Long pasportN;
     @Basic
     @Column(name = "pasport_s")
-    private long pasportS;
+    @NotNull
+    private Long pasportS;
     @Basic
     @Column(name = "street")
+    @Size(min=3, max=30)
     private String street;
-
     @Basic
     @Column(name = "home")
-    private int home;
+    @NotNull
+    private Integer home;
 
     @OneToMany(mappedBy = "clientsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<AccountsEntity> accountsEntityList;
@@ -73,7 +79,7 @@ public class ClientsEntity {
     }
 
 
-    public long getPasportN() {
+    public Long getPasportN() {
         return pasportN;
     }
 
@@ -82,7 +88,7 @@ public class ClientsEntity {
     }
 
 
-    public long getPasportS() {
+    public Long getPasportS() {
         return pasportS;
     }
 
@@ -99,7 +105,7 @@ public class ClientsEntity {
         this.street = street;
     }
 
-    public int getHome() {
+    public Integer getHome() {
         return home;
     }
 
@@ -115,31 +121,4 @@ public class ClientsEntity {
         this.accountsEntityList = accountsEntityList;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ClientsEntity that = (ClientsEntity) o;
-
-        if (idClient != that.idClient) return false;
-        if (pasportN != that.pasportN) return false;
-        if (pasportS != that.pasportS) return false;
-        if (home != that.home) return false;
-        if (surname != null ? !surname.equals(that.surname) : that.surname != null) return false;
-        if (street != null ? !street.equals(that.street) : that.street != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (idClient ^ (idClient >>> 32));
-        result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (int) (pasportN ^ (pasportN >>> 32));
-        result = 31 * result + (int) (pasportS ^ (pasportS >>> 32));
-        result = 31 * result + (street != null ? street.hashCode() : 0);
-        result = 31 * result + home;
-        return result;
-    }
 }

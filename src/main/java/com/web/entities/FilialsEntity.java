@@ -1,9 +1,13 @@
 package com.web.entities;
 
+import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,17 +18,21 @@ import java.util.List;
 public class FilialsEntity {
     @Id
     @Column(name = "id_filial")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idFilial;
     @Basic
     @Column(name = "region")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yy-MM-dd")
+    @Past @NotNull
     private Date region;
     @Basic
     @Column(name = "street")
+    @Size(min=3, max=30)
     private String street;
     @Basic
     @Column(name = "home")
-    private int home;
+    @NotNull
+    private Integer home;
     @OneToMany(mappedBy = "filialsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<AccountsEntity> accountsEntityList;
 
@@ -59,7 +67,7 @@ public class FilialsEntity {
     }
 
 
-    public int getHome() {
+    public Integer getHome() {
         return home;
     }
 
@@ -67,27 +75,5 @@ public class FilialsEntity {
         this.home = home;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        FilialsEntity that = (FilialsEntity) o;
-
-        if (idFilial != that.idFilial) return false;
-        if (home != that.home) return false;
-        if (region != null ? !region.equals(that.region) : that.region != null) return false;
-        if (street != null ? !street.equals(that.street) : that.street != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (idFilial ^ (idFilial >>> 32));
-        result = 31 * result + (region != null ? region.hashCode() : 0);
-        result = 31 * result + (street != null ? street.hashCode() : 0);
-        result = 31 * result + home;
-        return result;
-    }
 }

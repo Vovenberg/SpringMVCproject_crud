@@ -31,9 +31,9 @@
                     <a class="navbar-brand" href="/">СберБанк</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/clients">Клиенты</a></li>
+                    <li><a href="/clients">Клиенты</a></li>
                     <li><a href="/acc">Счета</a></li>
-                    <li><a href="/cards">Карты</a></li>
+                    <li class="active"><a href="/cards">Карты</a></li>
                     <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/oper">Операции</a></li>
                 </ul>
@@ -46,9 +46,23 @@
         <form:form method="POST" action="/cards/add" modelAttribute="card" cssClass="form-horizontal">
             <div class="row">
                 <div class="form-group col-md-9">
+                    <label class="col-md-3 control-lable" for="accountsEntity">ID счета</label>
+                    <div class="col-md-7">
+                        <form:input type="text" path="accountsEntity" id="accountsEntity" title="Введите ID существующего счета" class="form-control input-sm"/>
+                        <div class="has-error">
+                            <form:errors path="accountsEntity" class="help-inline"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="numberCard">Номер карты</label>
                     <div class="col-md-7">
                         <form:input type="text" path="numberCard" id="numberCard" class="form-control input-sm"/>
+                        <div class="has-error">
+                            <form:errors path="numberCard" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,7 +71,9 @@
                     <label class="col-md-3 control-lable" for="vcc">Номер VCC</label>
                     <div class="col-md-7">
                         <form:input type="text" path="vcc" id="vcc" class="form-control input-sm"/>
-
+                        <div class="has-error">
+                            <form:errors path="vcc" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +82,9 @@
                     <label class="col-md-3 control-lable" for="type">Тип карты</label>
                     <div class="col-md-7">
                         <form:input type="text" path="type" id="type" class="form-control input-sm"/>
-
+                        <div class="has-error">
+                            <form:errors path="type" class="help-inline"/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * Created by Vladimir on 16.10.2016.
  */
@@ -34,18 +36,29 @@ public class OperationsController {
     }
 
     @PostMapping("/add")
-    String addOper (@ModelAttribute("oper") OperationsEntity operationsEntity, BindingResult result){
+    String addOper (@Valid @ModelAttribute("oper") OperationsEntity operationsEntity, BindingResult result){
+        if (result.hasErrors())
+            return "/forms/addOper";
         operationsService.add(operationsEntity);
         return "redirect:/oper";
     }
+
+    @GetMapping("/delete")
+    String delete (@RequestParam("id") Long id){
+        operationsService.delete(id);
+        return "redirect:/oper";
+    }
+
     @GetMapping("/updateForm")
-    String updateForm (@RequestParam("id") Long id, Model model){
+    String updateForm (@Valid @RequestParam("id") Long id, Model model){
         model.addAttribute("oper",operationsService.getById(id));
-        return "/forms/editClients";
+        return "/forms/editOper";
     }
 
     @PostMapping("/update")
     String update (@ModelAttribute("oper") OperationsEntity operationsEntity, BindingResult result){
+        if (result.hasErrors())
+            return "/forms/editOper";
         operationsService.update(operationsEntity);
         return "redirect:/clients";
     }
