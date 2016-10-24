@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -55,7 +56,7 @@
                 <c:forEach items="${oper}" var="oper">
                     <tr>
                         <td> ${oper.idOper}</td>
-                        <td> ${oper.dateOper}</td>
+                        <td> <fmt:formatDate value="${oper.dateOper}" pattern="dd-MM-yyyy"/></td>
                         <td> ${oper.typeOper}</td>
                         <td>
                             <div class="btn-group">

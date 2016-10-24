@@ -44,6 +44,29 @@
         </div>
 
         <form:form method="POST" action="/acc/add" modelAttribute="acc" cssClass="form-horizontal">
+
+            <div class="row">
+                <div class="form-group col-md-9">
+                    <label class="col-md-3 control-lable" for="filialsEntity">ID филиала</label>
+                    <div class="col-md-7">
+                        <form:input type="text" path="filialsEntity" class="form-control input-sm" title="${fills}"/>
+                        <div class="has-error">
+                            <form:errors path="filialsEntity" class="help-inline"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-9">
+                    <label class="col-md-3 control-lable" for="clientsEntity">ID клиента</label>
+                    <div class="col-md-7">
+                        <form:input type="text" path="clientsEntity" class="form-control input-sm" title="${clients}"/>
+                        <div class="has-error">
+                            <form:errors path="clientsEntity" class="help-inline"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="dateBegin">Дата открытия</label>

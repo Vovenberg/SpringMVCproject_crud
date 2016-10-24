@@ -33,7 +33,12 @@ public class ClientsService implements DefaultInterface<ClientsEntity> {
 
     @Override
     public ClientsEntity getById(Long l) {
-        return  repository.findOne(l);
+        try {
+            return repository.findOne(l);
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     @Override

@@ -18,7 +18,7 @@ import java.util.List;
 public class MainController {
 
     @GetMapping("/")
-    String index(){
+    String index() {
         return "index";
     }
 }

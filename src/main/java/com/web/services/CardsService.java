@@ -36,7 +36,12 @@ public class CardsService implements DefaultInterface<CardsEntity> {
 
     @Override
     public CardsEntity getById(Long l) {
-        return repository.getOne(l);
+        try {
+            return repository.findOne(l);
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     @Override

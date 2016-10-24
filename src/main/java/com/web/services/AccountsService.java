@@ -37,7 +37,12 @@ public class AccountsService implements DefaultInterface<AccountsEntity> {
 
     @Override
     public AccountsEntity getById(Long l) {
-        return repository.getOne(l);
+        try {
+            return repository.findOne(l);
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     @Override

@@ -46,6 +46,17 @@
         <form:form method="POST" action="/oper/add" modelAttribute="oper" cssClass="form-horizontal">
             <div class="row">
                 <div class="form-group col-md-9">
+                    <label class="col-md-3 control-lable" for="dateOper">ID счета</label>
+                    <div class="col-md-7">
+                        <form:input type="text" path="accountsEntity" id="accountsEntity" title="${acc}" class="form-control input-sm"/>
+                        <div class="has-error">
+                            <form:errors path="accountsEntity" class="help-inline"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="dateOper">Дата операции</label>
                     <div class="col-md-7">
                         <form:input type="date" path="dateOper" id="dateOper" class="form-control input-sm"/>

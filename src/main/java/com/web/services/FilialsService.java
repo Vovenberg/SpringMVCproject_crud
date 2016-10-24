@@ -36,7 +36,12 @@ public class FilialsService implements DefaultInterface<FilialsEntity> {
 
     @Override
     public FilialsEntity getById(Long l) {
-        return repository.getOne(l);
+        try {
+            return repository.findOne(l);
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     @Override

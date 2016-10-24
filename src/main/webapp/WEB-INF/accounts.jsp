@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -55,8 +56,8 @@
                 <c:forEach items="${acc}" var="account">
                     <tr>
                         <td> ${account.idAccount}</td>
-                        <td> ${account.dateBegin}</td>
-                        <td> ${account.dateClose}</td>
+                        <td> <fmt:formatDate value="${account.dateBegin}" pattern="dd-MM-yyyy"/></td>
+                        <td> <fmt:formatDate value="${account.dateClose}" pattern="dd-MM-yyyy"/></td>
                         <td>
                             <div class="btn-group">
                                 <a class="btn btn-default" role="button" href="<c:url value="/acc/updateForm?id=${account.idAccount}"/>">Изменить</a>

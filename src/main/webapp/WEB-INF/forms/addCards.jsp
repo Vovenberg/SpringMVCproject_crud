@@ -48,7 +48,7 @@
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="accountsEntity">ID счета</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="accountsEntity" id="accountsEntity" title="Введите ID существующего счета" class="form-control input-sm"/>
+                        <form:input type="text" path="accountsEntity" id="accountsEntity" title="${acc}" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="accountsEntity" class="help-inline"/>
                         </div>
