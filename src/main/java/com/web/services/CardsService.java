@@ -25,7 +25,7 @@ public class CardsService implements DefaultInterface<CardsEntity> {
 
     @Override
     public void delete(Long l) {
-        repository.delete(repository.findOne(l));
+        repository.delete(l);
 
     }
 
@@ -38,8 +38,7 @@ public class CardsService implements DefaultInterface<CardsEntity> {
     public CardsEntity getById(Long l) {
         try {
             return repository.findOne(l);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

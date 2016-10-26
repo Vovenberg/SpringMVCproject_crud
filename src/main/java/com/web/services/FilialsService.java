@@ -25,7 +25,7 @@ public class FilialsService implements DefaultInterface<FilialsEntity> {
 
     @Override
     public void delete(Long l) {
-        repository.delete(repository.findOne(l));
+        repository.delete(l);
 
     }
 
@@ -38,8 +38,7 @@ public class FilialsService implements DefaultInterface<FilialsEntity> {
     public FilialsEntity getById(Long l) {
         try {
             return repository.findOne(l);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

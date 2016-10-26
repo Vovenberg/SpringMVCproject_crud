@@ -38,19 +38,10 @@ public class ClientsEntity {
     @NotNull
     private Integer home;
 
-    @OneToMany(mappedBy = "clientsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "clientsEntity")
     private List<AccountsEntity> accountsEntityList;
 
     public ClientsEntity() {
-    }
-
-    public ClientsEntity(Long id,String surname, long pasportN, long pasportS, String street, int home) {
-        this.idClient=id;
-        this.surname = surname;
-        this.pasportN = pasportN;
-        this.pasportS = pasportS;
-        this.street = street;
-        this.home = home;
     }
 
     public ClientsEntity(String surname, long pasportN, long pasportS, String street, int home) {

@@ -32,9 +32,9 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/clients">Клиенты</a></li>
+                    <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/acc">Счета</a></li>
                     <li class="active"><a href="/cards">Карты</a></li>
-                    <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/oper">Операции</a></li>
                 </ul>
             </div>
@@ -81,7 +81,7 @@
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="type">Тип карты</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="type" id="type" class="form-control input-sm"/>
+                        <form:select path="type" items="${types}" />
                         <div class="has-error">
                             <form:errors path="type" class="help-inline"/>
                         </div>

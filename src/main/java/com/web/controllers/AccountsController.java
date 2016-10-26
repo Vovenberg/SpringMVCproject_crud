@@ -65,11 +65,7 @@ public class AccountsController {
                 result.addError(new FieldError("filialsEntity", "filialsEntity", "filial not exist"));
             return "/forms/addAcc";
         }
-        AccountsEntity accountsEntity = new AccountsEntity();
-        accountsEntity.setDateBegin(accModel.getDateBegin());
-        accountsEntity.setDateClose(accModel.getDateClose());
-        accountsEntity.setClientsEntity(clientsEntity);
-        accountsEntity.setFilialsEntity(filialsEntity);
+        AccountsEntity accountsEntity = new AccountsEntity(accModel.getDateBegin(), accModel.getDateClose(), filialsEntity, clientsEntity);
         accountsService.add(accountsEntity);
         return "redirect:/acc";
     }
@@ -82,13 +78,16 @@ public class AccountsController {
 
     @GetMapping("/updateForm")
     String updateForm(@RequestParam("id") Long id, Model model) {
-        model.addAttribute("acc", accountsService.getById(id));
+        AccountsEntity accountsEntity = accountsService.getById(id);
+
+        model.addAttribute("acc", new AccModel(accountsEntity.getIdAccount(), accountsEntity.getDateBegin(), accountsEntity.getDateClose(), accountsEntity.getFilialsEntity().getIdFilial(), accountsEntity.getClientsEntity().getIdClient()));
         return "/forms/editAcc";
     }
 
     @PostMapping("/update")
-    String update(@Valid @ModelAttribute("acc") AccountsEntity accountsEntity, BindingResult result) {
+    String update(@Valid @ModelAttribute("acc") AccModel accModel, BindingResult result) {
         if (result.hasErrors()) return "/forms/editAcc";
+        AccountsEntity accountsEntity = new AccountsEntity(accModel.getId(), accModel.getDateBegin(), accModel.getDateClose(), clientsService.getById(accModel.getClientsEntity()), filialsService.getById(accModel.getFilialsEntity()));
         accountsService.update(accountsEntity);
         return "redirect:/acc";
     }

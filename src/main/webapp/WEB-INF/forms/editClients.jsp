@@ -32,9 +32,9 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/clients">Клиенты</a></li>
+                    <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/acc">Счета</a></li>
                     <li><a href="/cards">Карты</a></li>
-                    <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/oper">Операции</a></li>
                 </ul>
             </div>

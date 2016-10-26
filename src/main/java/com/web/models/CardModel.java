@@ -9,14 +9,40 @@ import javax.validation.constraints.Size;
  * Created by Vladimir on 24.10.2016.
  */
 public class CardModel {
+    private Long id;
     @NotNull
     private Long numberCard;
     @NotNull
     private Integer vcc;
     @Size(min=3, max=30)
     private String type;
-    @NotNull
     private Long accountsEntity;
+
+    public CardModel() {
+    }
+
+    public CardModel(Long id, Long numberCard, Integer vcc, String type, Long accountsEntity) {
+        this.id = id;
+        this.numberCard = numberCard;
+        this.vcc = vcc;
+        this.type = type;
+        this.accountsEntity = accountsEntity;
+    }
+
+    public CardModel(Long numberCard, Integer vcc, String type, Long accountsEntity) {
+        this.numberCard = numberCard;
+        this.vcc = vcc;
+        this.type = type;
+        this.accountsEntity = accountsEntity;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getNumberCard() {
         return numberCard;

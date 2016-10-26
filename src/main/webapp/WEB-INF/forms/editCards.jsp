@@ -1,4 +1,4 @@
-editClients.jsp<%--
+<%--
   Created by IntelliJ IDEA.
   User: Vladimir
   Date: 30.09.2016
@@ -32,9 +32,9 @@ editClients.jsp<%--
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/clients">Клиенты</a></li>
+                    <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/acc">Счета</a></li>
                     <li class="active"><a href="/cards">Карты</a></li>
-                    <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/oper">Операции</a></li>
                 </ul>
             </div>
@@ -44,7 +44,8 @@ editClients.jsp<%--
         </div>
 
         <form:form method="POST" action="/cards/update"  modelAttribute="card" cssClass="form-horizontal">
-            <form:hidden path="idCard" />
+            <form:hidden path="id" />
+            <form:hidden path="accountsEntity" />
             <div class="row">
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="numberCard">Номер карты</label>
@@ -71,7 +72,7 @@ editClients.jsp<%--
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="type">Тип карты</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="type" id="type" class="form-control input-sm"/>
+                        <form:select path="type" items="${types}" />
                         <div class="has-error">
                             <form:errors path="type" class="help-inline"/>
                         </div>

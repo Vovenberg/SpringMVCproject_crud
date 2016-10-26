@@ -53,10 +53,7 @@ public class OperationsController {
                 result.addError(new FieldError("accountsEntity", "accountsEntity", "account with this ID not exist"));
             return "/forms/addOper";
         }
-        OperationsEntity operationsEntity = new OperationsEntity();
-        operationsEntity.setDateOper(operModel.getDateOper());
-        operationsEntity.setTypeOper(operModel.getTypeOper());
-        operationsEntity.setAccountsEntity(entity);
+        OperationsEntity operationsEntity = new OperationsEntity(operModel.getDateOper(), operModel.getTypeOper(), entity);
         operationsService.add(operationsEntity);
         return "redirect:/oper";
     }
@@ -68,15 +65,17 @@ public class OperationsController {
     }
 
     @GetMapping("/updateForm")
-    String updateForm(@Valid @RequestParam("id") Long id, Model model) {
-        model.addAttribute("oper", operationsService.getById(id));
+    String updateForm(@RequestParam("id") Long id, Model model) {
+        OperationsEntity o = operationsService.getById(id);
+        model.addAttribute("oper", new OperModel(o.getIdOper(), o.getDateOper(), o.getTypeOper(), o.getAccountsEntity().getIdAccount()));
         return "/forms/editOper";
     }
 
     @PostMapping("/update")
-    String update(@ModelAttribute("oper") OperationsEntity operationsEntity, BindingResult result) {
+    String update(@Valid @ModelAttribute("oper") OperModel o, BindingResult result) {
         if (result.hasErrors()) return "/forms/editOper";
+        OperationsEntity operationsEntity = new OperationsEntity(o.getId(), o.getDateOper(), o.getTypeOper(), accountsService.getById(o.getAccountsEntity()));
         operationsService.update(operationsEntity);
-        return "redirect:/clients";
+        return "redirect:/oper";
     }
 }

@@ -1,9 +1,11 @@
 package com.web.entities;
 
+import com.web.models.AccModel;
 import javafx.scene.control.Label;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.util.Date;
@@ -23,24 +25,25 @@ public class AccountsEntity {
     @Basic
     @Column(name = "date_begin")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull @Past
+    @NotNull
+    @Past
     private Date dateBegin;
     @Basic
     @Column(name = "date_close")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull @Past
+    @NotNull
     private Date dateClose;
-    @OneToMany(mappedBy = "accountsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "accountsEntity")
     private Set<OperationsEntity> operationsEntityList;
 
-    @OneToMany(mappedBy = "accountsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "accountsEntity")
     private Set<CardsEntity> cardsEntityList;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_filial")
     private FilialsEntity filialsEntity;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_client")
     private ClientsEntity clientsEntity;
 
@@ -48,6 +51,20 @@ public class AccountsEntity {
     public AccountsEntity() {
     }
 
+    public AccountsEntity(Date dateBegin, Date dateClose, FilialsEntity filialsEntity, ClientsEntity clientsEntity) {
+        this.dateBegin = dateBegin;
+        this.dateClose = dateClose;
+        this.filialsEntity = filialsEntity;
+        this.clientsEntity = clientsEntity;
+    }
+
+    public AccountsEntity(Long id, Date dateBegin, Date dateClose, ClientsEntity clientsEntity, FilialsEntity filialsEntity) {
+        this.idAccount = id;
+        this.dateBegin = dateBegin;
+        this.dateClose = dateClose;
+        this.clientsEntity = clientsEntity;
+        this.filialsEntity = filialsEntity;
+    }
 
     public long getIdAccount() {
         return idAccount;
@@ -93,25 +110,23 @@ public class AccountsEntity {
         this.clientsEntity = clientsEntity;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AccountsEntity that = (AccountsEntity) o;
-
-        if (idAccount != that.idAccount) return false;
-        if (dateBegin != null ? !dateBegin.equals(that.dateBegin) : that.dateBegin != null) return false;
-        if (dateClose != null ? !dateClose.equals(that.dateClose) : that.dateClose != null) return false;
-
-        return true;
+    public AccModel getModel() {
+        return new AccModel(dateBegin, dateClose, filialsEntity.getIdFilial(), clientsEntity.getIdClient());
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (idAccount ^ (idAccount >>> 32));
-        result = 31 * result + (dateBegin != null ? dateBegin.hashCode() : 0);
-        result = 31 * result + (dateClose != null ? dateClose.hashCode() : 0);
-        return result;
+    public Set<OperationsEntity> getOperationsEntityList() {
+        return operationsEntityList;
+    }
+
+    public void setOperationsEntityList(Set<OperationsEntity> operationsEntityList) {
+        this.operationsEntityList = operationsEntityList;
+    }
+
+    public Set<CardsEntity> getCardsEntityList() {
+        return cardsEntityList;
+    }
+
+    public void setCardsEntityList(Set<CardsEntity> cardsEntityList) {
+        this.cardsEntityList = cardsEntityList;
     }
 }

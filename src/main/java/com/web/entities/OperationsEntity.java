@@ -24,13 +24,25 @@ public class OperationsEntity {
     @Column(name = "type_oper")
     @Size(min=3, max=30)
     private String typeOper;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_account")
     private AccountsEntity accountsEntity;
 
     public OperationsEntity() {
     }
 
+    public OperationsEntity(Long id,Date dateOper, String typeOper, AccountsEntity accountsEntity) {
+        this.idOper=id;
+        this.dateOper = dateOper;
+        this.typeOper = typeOper;
+        this.accountsEntity = accountsEntity;
+    }
+
+    public OperationsEntity(Date dateOper, String typeOper, AccountsEntity accountsEntity) {
+        this.dateOper = dateOper;
+        this.typeOper = typeOper;
+        this.accountsEntity = accountsEntity;
+    }
 
     public long getIdOper() {
         return idOper;
@@ -66,26 +78,4 @@ public class OperationsEntity {
         this.accountsEntity = accountsEntity;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        OperationsEntity that = (OperationsEntity) o;
-
-        if (idOper != that.idOper) return false;
-        if (dateOper != null ? !dateOper.equals(that.dateOper) : that.dateOper != null) return false;
-        if (typeOper != null ? !typeOper.equals(that.typeOper) : that.typeOper != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (idOper ^ (idOper >>> 32));
-        result = 31 * result + (dateOper != null ? dateOper.hashCode() : 0);
-        result = 31 * result + (typeOper != null ? typeOper.hashCode() : 0);
-        return result;
-    }
 }

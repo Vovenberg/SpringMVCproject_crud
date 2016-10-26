@@ -24,7 +24,7 @@ public class OperationsService implements DefaultInterface<OperationsEntity> {
 
     @Override
     public void delete(Long l) {
-        repository.delete(repository.findOne(l));
+        repository.delete(l);
     }
 
     @Override
@@ -36,8 +36,7 @@ public class OperationsService implements DefaultInterface<OperationsEntity> {
     public OperationsEntity getById(Long l) {
         try {
             return repository.findOne(l);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

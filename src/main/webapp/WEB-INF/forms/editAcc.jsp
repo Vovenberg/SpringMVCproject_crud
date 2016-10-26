@@ -32,9 +32,9 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/clients">Клиенты</a></li>
+                    <li><a href="/fil">Филиалы</a></li>
                     <li class="active"><a href="/acc">Счета</a></li>
                     <li><a href="/cards">Карты</a></li>
-                    <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/oper">Операции</a></li>
                 </ul>
             </div>
@@ -44,7 +44,31 @@
         </div>
 
         <form:form method="POST" action="/acc/update"  modelAttribute="acc" cssClass="form-horizontal">
-            <form:hidden path="idAccount" />
+            <form:hidden path="id" />
+            <form:hidden path="clientsEntity" />
+            <form:hidden path="filialsEntity" />
+            <%--<div class="row">
+                <div class="form-group col-md-9">
+                    <label class="col-md-3 control-lable" for="clientsEntity">ID клиента</label>
+                    <div class="col-md-7">
+                        <form:input  type="text" id="clientsEntity" path="clientsEntity" class="form-control input-sm" title="${clients}"/>
+                        <div class="has-error">
+                            <form:errors path="clientsEntity" class="help-inline"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-9">
+                    <label class="col-md-3 control-lable" for="filialsEntity">ID филиала</label>
+                    <div class="col-md-7">
+                        <form:input  type="text" id="filialsEntity" path="filialsEntity" class="form-control input-sm" title="${fills}"/>
+                        <div class="has-error">
+                            <form:errors path="filialsEntity" class="help-inline"/>
+                        </div>
+                    </div>
+                </div>
+            </div>--%>
             <div class="row">
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="dateBegin">Дата открытия</label>

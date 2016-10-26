@@ -32,9 +32,9 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/clients">Клиенты</a></li>
+                    <li><a href="/fil">Филиалы</a></li>
                     <li><a href="/acc">Счета</a></li>
                     <li><a href="/cards">Карты</a></li>
-                    <li><a href="/fil">Филиалы</a></li>
                     <li class="active"><a href="/oper">Операции</a></li>
                 </ul>
             </div>
@@ -44,7 +44,8 @@
         </div>
 
         <form:form method="POST" action="/oper/update"  modelAttribute="oper" cssClass="form-horizontal">
-            <form:hidden path="idOper" />
+            <form:hidden path="id" />
+            <form:hidden path="accountsEntity" />
             <div class="row">
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="dateOper">Дата операции</label>
@@ -60,7 +61,7 @@
                 <div class="form-group col-md-9">
                     <label class="col-md-3 control-lable" for="typeOper">Тип операции</label>
                     <div class="col-md-7">
-                        <form:input type="date" path="typeOper" id="typeOper" class="form-control input-sm"/>
+                        <form:input type="text" path="typeOper" id="typeOper" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="typeOper" class="help-inline"/>
                         </div>

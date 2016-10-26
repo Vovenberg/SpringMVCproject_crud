@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class FilialsEntity {
     private long idFilial;
     @Basic
     @Column(name = "region")
-    @DateTimeFormat(pattern = "yy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Past @NotNull
     private Date region;
     @Basic
@@ -33,7 +34,7 @@ public class FilialsEntity {
     @Column(name = "home")
     @NotNull
     private Integer home;
-    @OneToMany(mappedBy = "filialsEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "filialsEntity")
     private List<AccountsEntity> accountsEntityList;
 
     public FilialsEntity() {
@@ -75,5 +76,11 @@ public class FilialsEntity {
         this.home = home;
     }
 
+    public List<AccountsEntity> getAccountsEntityList() {
+        return accountsEntityList;
+    }
 
+    public void setAccountsEntityList(List<AccountsEntity> accountsEntityList) {
+        this.accountsEntityList = accountsEntityList;
+    }
 }

@@ -34,9 +34,9 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/clients">Клиенты</a></li>
+                <li class="active"><a href="/fil">Филиалы</a></li>
                 <li><a href="/acc">Счета</a></li>
                 <li><a href="/cards">Карты</a></li>
-                <li class="active"><a href="/fil">Филиалы</a></li>
                 <li><a href="/oper">Операции</a></li>
             </ul>
         </div>
@@ -49,7 +49,7 @@
         <form:hidden path="idFilial"/>
         <div class="row">
             <div class="form-group col-md-9">
-                <label class="col-md-3 control-lable">Дата</label>
+                <label for="region" class="col-md-3 control-lable">Дата</label>
                 <div class="col-md-7">
                     <form:input type="date" path="region" id="region" class="form-control input-sm"/>
                     <div class="has-error">

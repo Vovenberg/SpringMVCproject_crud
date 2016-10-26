@@ -24,9 +24,9 @@ public class CardsEntity {
     private Integer vcc;
     @Basic
     @Column(name = "type")
-    @Size(min=3, max=30)
+    @Size(min = 3, max = 30)
     private String type;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "id_account")
     @NotNull
     private AccountsEntity accountsEntity;
@@ -34,6 +34,20 @@ public class CardsEntity {
     public CardsEntity() {
     }
 
+    public CardsEntity(Long idCard, Long numberCard, Integer vcc, String type, AccountsEntity accountsEntity) {
+        this.idCard = idCard;
+        this.numberCard = numberCard;
+        this.vcc = vcc;
+        this.type = type;
+        this.accountsEntity = accountsEntity;
+    }
+
+    public CardsEntity(Long numberCard, Integer vcc, String type, AccountsEntity accountsEntity) {
+        this.numberCard = numberCard;
+        this.vcc = vcc;
+        this.type = type;
+        this.accountsEntity = accountsEntity;
+    }
 
     public long getIdCard() {
         return idCard;

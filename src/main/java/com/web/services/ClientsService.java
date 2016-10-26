@@ -23,7 +23,7 @@ public class ClientsService implements DefaultInterface<ClientsEntity> {
 
     @Override
     public void delete(Long l) {
-        repository.delete(repository.findOne(l));
+        repository.delete(l);
     }
 
     @Override
