@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Vladimir on 21.09.2016.
  */
 @Entity
-@Table(name = "filials", schema = "public", catalog = "Bank")
+@Table(name = "filials")
 public class FilialsEntity {
     @Id
     @Column(name = "id_filial")

@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by Vladimir on 21.09.2016.
  */
 @Entity
-@Table(name = "clients", schema = "public", catalog = "Bank")
+@Table(name = "clients")
 public class ClientsEntity {
     @Id
     @Column(name = "id_client")

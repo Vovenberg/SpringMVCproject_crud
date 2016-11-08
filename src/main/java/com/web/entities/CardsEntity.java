@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
  * Created by Vladimir on 21.09.2016.
  */
 @Entity
-@Table(name = "cards", schema = "public", catalog = "Bank")
+@Table(name = "cards")
 public class CardsEntity {
     @Id
     @Column(name = "id_card")

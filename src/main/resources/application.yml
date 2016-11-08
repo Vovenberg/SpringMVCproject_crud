@@ -1,9 +1,24 @@
 spring:
-    mvc:
-      view:
-        prefix: /WEB-INF/
-        suffix: .jsp
+  profiles:
+    active: prod
+  application:
+    name: SberBank
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
 
+
+---
+spring:
+    profiles: test
+    jpa:
+          show-sql: true
+          database: h2
+          database-platform: H2
+---
+spring:
+    profiles: prod
     datasource:
             platform: postgres
             username: postgres
@@ -13,3 +28,4 @@ spring:
     jpa:
             show-sql: true
             generate-ddl: true
+
