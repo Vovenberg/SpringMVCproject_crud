@@ -1,6 +1,5 @@
 package com.web.services;
 
-import com.web.entities.ClientsEntity;
 import com.web.entities.FilialsEntity;
 import com.web.repositories.FilialsRepository;
 import org.springframework.beans.factory.annotation.Autowired;

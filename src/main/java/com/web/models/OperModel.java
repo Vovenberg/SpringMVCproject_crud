@@ -1,6 +1,5 @@
 package com.web.models;
 
-import com.web.entities.AccountsEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;

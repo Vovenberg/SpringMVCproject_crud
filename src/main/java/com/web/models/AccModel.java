@@ -1,7 +1,5 @@
 package com.web.models;
 
-import com.web.entities.ClientsEntity;
-import com.web.entities.FilialsEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Future;

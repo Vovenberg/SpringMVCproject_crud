@@ -1,15 +1,12 @@
 package com.web.entities;
 
 import com.web.models.AccModel;
-import javafx.scene.control.Label;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 /**

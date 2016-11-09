@@ -29,6 +29,7 @@ public class WebMagistrApplication extends SpringBootServletInitializer {
         messageSource.setDefaultEncoding("UTF8");
         return messageSource;
     }
+
     @Bean
     @Profile("test")
     public EmbeddedDatabase dataSource() {

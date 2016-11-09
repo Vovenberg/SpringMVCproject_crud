@@ -1,7 +1,5 @@
 package com.web.models;
 
-import com.web.entities.AccountsEntity;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 

@@ -17,7 +17,7 @@ public class ClientsService implements DefaultInterface<ClientsEntity> {
     ClientRepository repository;
 
     @Override
-    public void add(ClientsEntity entity){
+    public void add(ClientsEntity entity) {
         repository.save(entity);
     }
 
@@ -28,15 +28,14 @@ public class ClientsService implements DefaultInterface<ClientsEntity> {
 
     @Override
     public void update(ClientsEntity entity) {
-            repository.save(entity);
+        repository.save(entity);
     }
 
     @Override
     public ClientsEntity getById(Long l) {
         try {
             return repository.findOne(l);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

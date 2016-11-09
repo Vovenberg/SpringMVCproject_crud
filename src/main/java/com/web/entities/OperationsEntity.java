@@ -18,11 +18,12 @@ public class OperationsEntity {
     private long idOper;
     @Basic
     @Column(name = "date_oper")
-    @NotNull @Past
+    @NotNull
+    @Past
     private Date dateOper;
     @Basic
     @Column(name = "type_oper")
-    @Size(min=3, max=30)
+    @Size(min = 3, max = 30)
     private String typeOper;
     @ManyToOne
     @JoinColumn(name = "id_account")
@@ -31,8 +32,8 @@ public class OperationsEntity {
     public OperationsEntity() {
     }
 
-    public OperationsEntity(Long id,Date dateOper, String typeOper, AccountsEntity accountsEntity) {
-        this.idOper=id;
+    public OperationsEntity(Long id, Date dateOper, String typeOper, AccountsEntity accountsEntity) {
+        this.idOper = id;
         this.dateOper = dateOper;
         this.typeOper = typeOper;
         this.accountsEntity = accountsEntity;

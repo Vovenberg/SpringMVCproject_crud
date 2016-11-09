@@ -1,13 +1,11 @@
 package com.web.entities;
 
-import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,11 +22,12 @@ public class FilialsEntity {
     @Basic
     @Column(name = "region")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Past @NotNull
+    @Past
+    @NotNull
     private Date region;
     @Basic
     @Column(name = "street")
-    @Size(min=3, max=30)
+    @Size(min = 3, max = 30)
     private String street;
     @Basic
     @Column(name = "home")

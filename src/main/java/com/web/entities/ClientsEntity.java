@@ -3,9 +3,7 @@ package com.web.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Vladimir on 21.09.2016.
@@ -19,7 +17,7 @@ public class ClientsEntity {
     private long idClient;
     @Basic
     @Column(name = "surname")
-    @Size(min=3, max=30)
+    @Size(min = 3, max = 30)
     private String surname;
     @Basic
     @Column(name = "pasport_n")
@@ -31,7 +29,7 @@ public class ClientsEntity {
     private Long pasportS;
     @Basic
     @Column(name = "street")
-    @Size(min=3, max=30)
+    @Size(min = 3, max = 30)
     private String street;
     @Basic
     @Column(name = "home")

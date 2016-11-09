@@ -2,8 +2,6 @@ package com.web.controllers;
 
 import com.web.entities.AccountsEntity;
 import com.web.entities.CardsEntity;
-import com.web.entities.ClientsEntity;
-import com.web.models.AccModel;
 import com.web.models.CardModel;
 import com.web.services.AccountsService;
 import com.web.services.CardsService;
@@ -15,7 +13,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

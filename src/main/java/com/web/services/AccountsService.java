@@ -1,7 +1,6 @@
 package com.web.services;
 
 import com.web.entities.AccountsEntity;
-import com.web.entities.ClientsEntity;
 import com.web.repositories.AccountsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
